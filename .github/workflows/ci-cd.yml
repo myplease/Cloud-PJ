@@ -58,8 +58,8 @@ jobs:
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/cloudcal:webapp-${{ github.sha }}
 
-    - name: (Optional) Tag as latest on main branch
-      if: github.ref == 'refs/heads/main'
+    - name: (Optional) Tag as latest on master branch
+      if: github.ref == 'refs/heads/master'
       run: |
         docker tag ${{ secrets.DOCKER_USERNAME }}/cloudcal:webapp-${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/cloudcal:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/cloudcal:latest
